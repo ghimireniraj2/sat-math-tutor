@@ -203,3 +203,16 @@ app.add_middleware(
 ```
 `allow_origins=["*"]` is not used even in development.
 ---
+
+
+## Known Limitations & Planned Improvements
+
+### Data Quality — Math Symbol Extraction
+Current ingestion uses PDF parsing via `pypdf` which silently drops mathematical
+expressions (fractions, square roots, equations) from OpenStax source files.
+Concept-level text retrieves correctly but expression-heavy chunks have gaps.
+
+**Planned:** Migrate OpenStax source to CNXML format from the official GitHub
+repository (https://github.com/openstax/osbooks-algebra-trigonometry) which
+preserves math as proper unicode. Ingestion script update only — retrieval
+pipeline unchanged. Tracked as Phase 5 improvement.
