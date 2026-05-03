@@ -21,10 +21,13 @@ sentence-transformers
 pypdf
 
 # Observability
-langfuse
+langfuse==2.60.0
 
 # Dev
 pytest
 
 # py torch-directml
 torch-directml
+
+# llm
+groq
