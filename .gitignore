@@ -56,3 +56,7 @@ qdrant_storage/
 .DS_Store?
 Thumbs.db
 desktop.ini
+
+frontend/.env
+frontend/.env.production
+frontend/.env.local

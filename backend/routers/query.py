@@ -1,19 +1,17 @@
 from pydantic import BaseModel
 from typing import Literal
-import json
 import uuid
 
 from fastapi import APIRouter, HTTPException
-from retrieval import retrieve
+from retrieval import retrieve, retrieve_reranked
 from prompts import (
     build_explain_prompt,
     build_practice_prompt,
-    parse_practice_response,
 )
 from llm import complete, complete_structured
 from prompts import PracticeQuestion, build_practice_prompt
-from history import get_history, add_turn, clear_history
-from observe import start_trace, log_retrieval, log_llm, finish_trace
+from history import get_history, add_turn
+from observe import start_trace, log_retrieval, finish_trace
 from config import settings
 
 router = APIRouter()
